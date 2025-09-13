@@ -1352,7 +1352,7 @@ body {
 
   opacity: 0; /* start invisible */
   animation: fadeZoom 2s ease-out forwards; /* apply animation */
-  animation-delay: 1s; /* wait a bit so flowers start first */
+  animation-delay: 2s; /* wait a bit so flowers start first */
 }
 
 @keyframes fadeZoom {
