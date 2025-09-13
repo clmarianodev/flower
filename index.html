@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" href="flowers.png" type="image/x-icon">
-    <title>Flowers</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" href="flowers.png" type="image/x-icon">
+  <title>Flowers</title>
 </head>
-<audio id="bgm" autoplay loop>
-    <source src="bgm.mp3" type="audio/mpeg">
-  </audio>
-  
+
+<audio id="bgm" loop>
+  <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
 <body class="container">
-    <div class="name-center">
-  For you, Kim :)
-</div>
+  <div id="tap-to-start" class="tap-overlay">
+    Tap to Start 🌸
+  </div>
+
+  <div class="name-center">
+    For you, Kim :)
+  </div>
     <div class="night"></div>
     <div class="flowers">
       <div class="flower flower--1">
@@ -314,14 +319,19 @@
       </div>
     </div>
     
-    <script src="main.js"></script>
-      <script>
+  <script>
     const bgm = document.getElementById("bgm");
-    bgm.play().catch(() => {
-      // If autoplay is blocked, wait for first click
-      document.body.addEventListener("click", () => {
-        bgm.play();
-      }, { once: true });
+    const tapOverlay = document.getElementById("tap-to-start");
+
+    tapOverlay.addEventListener("click", () => {
+      // Play music
+      bgm.play();
+
+      // Remove "container" class so animation starts
+      document.body.classList.remove("container");
+
+      // Hide the tap overlay
+      tapOverlay.style.display = "none";
     });
   </script>
   </body>
